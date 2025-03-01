@@ -1,0 +1,16 @@
+source leaprc.protein.ff19SB
+source leaprc.DNA.OL21
+source leaprc.gaff
+source leaprc.water.tip3p
+mods = loadAmberParams MBC.frcmod
+loadAmberPrep MBC.prepin
+loadAmberParams frcmod2.MBC
+loadAmberParams frcmod1.MBC
+complex = loadpdb Docked.pdb
+solvateBox complex TIP3P/home/debostuti/Mam/CACA/cycle1
+BOX {16.0 16.0 16.0}
+addIons complex Na+ 42 Cl- 42
+check complex
+saveamberparm complex Docked.prmtop Docked.inpcrd
+
+
